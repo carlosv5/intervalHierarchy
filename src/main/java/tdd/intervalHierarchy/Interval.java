@@ -14,13 +14,17 @@ public class Interval {
 	}
 
 	public boolean isIntersected(Interval another) {
-		return this.isTheSame(another) || this.isIncluded(another.min) ||
-				this.isIncluded(another.max)||
-				another.isIncluded(this.min);
+		return this.isTheSame(another) || this.isIncluded(another.min, another.isClosed) ||
+				this.isIncluded(another.max, another.isClosed)||
+				another.isIncluded(this.min, this.isClosed);
 	}
 
-	protected boolean isIncluded(double value) {
-		return isClosed && (this.min <= value && value <= this.max) || (this.min < value) && (value < this.max);
+	protected boolean isIncluded(double value, boolean valueClosed) {
+		if(this.isClosed && valueClosed) {
+			return this.min <= value && value <= this.max;
+		} else  {
+			return this.min < value && value < this.max;
+		}
 	}
 	
 	public boolean isTheSame(Interval another) {
