@@ -20,10 +20,7 @@ public class Interval {
 	}
 
 	protected boolean isIncluded(double value) {
-		if(isClosed) {
-			return (this.min < value && value < this.max) || this.min == value || value == this.max;
-		}
-		return (this.min < value) && (value < this.max);
+		return isClosed && (this.min <= value && value <= this.max) || (this.min < value) && (value < this.max);
 	}
 	
 	public boolean isTheSame(Interval another) {
