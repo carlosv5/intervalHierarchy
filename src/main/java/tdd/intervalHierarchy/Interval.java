@@ -2,9 +2,9 @@ package tdd.intervalHierarchy;
 
 public class Interval {
 	
-	protected double min;
-	protected double max;
-	protected boolean isClosed;
+	private double min;
+	private double max;
+	private boolean isClosed;
 
 
 	public Interval(double min, double max, boolean isClosed) {
@@ -19,7 +19,7 @@ public class Interval {
 				another.isIncluded(this.min, this.isClosed);
 	}
 
-	protected boolean isIncluded(double value, boolean valueClosed) {
+	public boolean isIncluded(double value, boolean valueClosed) {
 		if(this.isClosed && valueClosed) {
 			return this.min <= value && value <= this.max;
 		} else  {
