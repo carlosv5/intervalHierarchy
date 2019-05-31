@@ -10,8 +10,9 @@ public class ClosedInterval extends Interval{
 		return super.isIntersected(another);
 	}
 
+	@Override
 	protected boolean isIncluded(double value) {
-		return super.isIncluded(value);
+		return super.isIncluded(value) || this.min == value || value == this.max;
 	}
 
 }

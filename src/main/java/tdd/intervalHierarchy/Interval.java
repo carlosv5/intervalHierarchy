@@ -17,7 +17,7 @@ public abstract class Interval {
 	}
 
 	protected boolean isIncluded(double value) {
-		return this.min <= value && value <= this.max;
+		return this.min < value && value < this.max;
 	}
 
 }
