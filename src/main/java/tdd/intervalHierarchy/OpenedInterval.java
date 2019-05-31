@@ -4,10 +4,13 @@ public class OpenedInterval {
 	
 	protected double min;
 	protected double max;
+	protected boolean isClosed;
 
-	public OpenedInterval(double min, double max) {
+
+	public OpenedInterval(double min, double max, boolean isClosed) {
 		this.min = min;
 		this.max = max;
+		this.isClosed = isClosed;
 	}
 
 	public boolean isIntersected(OpenedInterval another) {
@@ -17,7 +20,10 @@ public class OpenedInterval {
 	}
 
 	protected boolean isIncluded(double value) {
-		return this.min < value && value < this.max;
+		if(isClosed) {
+			return (this.min < value && value < this.max) || this.min == value || value == this.max;
+		}
+		return (this.min < value) && (value < this.max);
 	}
 	
 	public boolean isTheSame(OpenedInterval another) {

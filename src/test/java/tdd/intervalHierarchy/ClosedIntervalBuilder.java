@@ -6,9 +6,12 @@ public class ClosedIntervalBuilder {
 	
 	private double max;
 	
+	private boolean isClosed;
+	
 	ClosedIntervalBuilder(){
 		this.min = 0;
 		this.max = 1;
+		this.isClosed = true;
 	}
 	
 	ClosedIntervalBuilder min(double min) {
@@ -21,9 +24,9 @@ public class ClosedIntervalBuilder {
 		return this;
 	}
 	
-	ClosedInterval build() {
+	OpenedInterval build() {
 		assert min <= max;
-		return new ClosedInterval(min, max);
+		return new OpenedInterval(min, max, isClosed);
 	}
 
 	
