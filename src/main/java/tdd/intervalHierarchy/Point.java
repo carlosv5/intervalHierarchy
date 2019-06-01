@@ -2,8 +2,8 @@ package tdd.intervalHierarchy;
 
 public class Point {
 	
-	private double value;
-	private boolean isClosed;
+	protected double value;
+	protected boolean isClosed;
 	
 	protected Point(double value, boolean isClosed) {
 		this.value = value;
@@ -16,20 +16,6 @@ public class Point {
 
 	public boolean getIsClosed() {
 		return isClosed;
-	}
-	
-	public boolean isAtRight(Point point) {
-		if(this.value > point.getValue() || isTheSame(point)) {
-			return true;
-		}
-		return false;
-	}
-	
-	public boolean isAtLeft(Point point) {
-		if(this.value < point.getValue() || isTheSame(point) ) {
-			return true;
-		}
-		return false;
 	}
 	
 	public boolean isTheSame(Point point) {
