@@ -41,12 +41,12 @@ public class OpenedIntervalTest extends TestCase {
 		assertTrue(one.isIntersected(another));
 	}
 	
-//	@Test
-//	public void testIsTheSame() {
-//		Interval one = new OpenedIntervalBuilder().min(3).max(14).build();
-//		Interval another = new OpenedIntervalBuilder().min(3).max(14).build();
-//		assertTrue(one.isTheSame(another));
-//	}
+	@Test
+	public void testIsTheSame() {
+		Interval one = new OpenedIntervalBuilder().min(3).max(14).build();
+		Interval another = new OpenedIntervalBuilder().min(3).max(14).build();
+		assertTrue(one.isTheSame(another));
+	}
 	
 	@Test
 	public void testIsIntersectedOverlapingByEquals() {
@@ -55,12 +55,12 @@ public class OpenedIntervalTest extends TestCase {
 		assertTrue(one.isIntersected(another));
 	}
 	
-//	@Test
-//	public void testIsNotTheSameInRight() {
-//		Interval one = new OpenedIntervalBuilder().min(3).max(14).build();
-//		Interval another = new OpenedIntervalBuilder().min(0).max(3).build();
-//		assertFalse(one.isTheSame(another));
-//	}
+	@Test
+	public void testIsNotTheSameInRight() {
+		Interval one = new OpenedIntervalBuilder().min(3).max(14).build();
+		Interval another = new OpenedIntervalBuilder().min(0).max(3).build();
+		assertFalse(one.isTheSame(another));
+	}
 	
 	@Test
 	public void testIsIntersectedNotOverlapingByLeft() {
@@ -69,12 +69,12 @@ public class OpenedIntervalTest extends TestCase {
 		assertFalse(one.isIntersected(another));
 	}
 	
-//	@Test
-//	public void testIsNotTheSameInLeft() {
-//		Interval one = new OpenedIntervalBuilder().min(3).max(14).build();
-//		Interval another = new OpenedIntervalBuilder().min(14).max(22).build();
-//		assertFalse(one.isTheSame(another));
-//	}
+	@Test
+	public void testIsNotTheSameInLeft() {
+		Interval one = new OpenedIntervalBuilder().min(3).max(14).build();
+		Interval another = new OpenedIntervalBuilder().min(14).max(22).build();
+		assertFalse(one.isTheSame(another));
+	}
 	
 	@Test
 	public void testIsIntersectedNotOverlapingByRight() {
