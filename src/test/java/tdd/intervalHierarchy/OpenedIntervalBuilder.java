@@ -2,32 +2,23 @@ package tdd.intervalHierarchy;
 
 public class OpenedIntervalBuilder {
 
-	private double min;
-	
-	private double max;
-	
-	private boolean isClosed;
+	private IntervalBuilder intervalBuilder;
 	
 	OpenedIntervalBuilder(){
-		this.min = 0;
-		this.max = 1;
-		this.isClosed = false;
+		this.intervalBuilder = new IntervalBuilder();
 	}
 	
 	OpenedIntervalBuilder min(double min) {
-		this.min = min;
+		this.intervalBuilder.min(min);
 		return this;
 	}
 
 	OpenedIntervalBuilder max(double max) {
-		this.max = max;
+		this.intervalBuilder.max(max);
 		return this;
 	}
 	
 	Interval build() {
-		assert min <= max;
-		return new Interval(min, max, isClosed, isClosed);
-	}
-
-	
+		return intervalBuilder.build();
+	}	
 }
