@@ -10,9 +10,16 @@ import tdd.builders.OpenedIntervalBuilder;
 public class InfiniteStartlIntervalTest extends TestCase {
 	
 	@Test
-	public void testIsIntersectedInfiniteUntilIntervalsInRight() {
+	public void testIsIntersectedInfiniteUntilIntervalsInside() {
 		Interval infiniteUntilInterlval1 = new IntervalBuilder().max(15).maxClosed().build();
 		Interval infiniteUntilInterlval2 = new IntervalBuilder().max(10).maxClosed().build();
+		assertTrue(infiniteUntilInterlval1.isIntersected(infiniteUntilInterlval2));
+	}
+	
+	@Test
+	public void testIsIntersectedInfiniteUntilIntervalsInRight() {
+		Interval infiniteUntilInterlval1 = new IntervalBuilder().max(10).maxClosed().build();
+		Interval infiniteUntilInterlval2 = new IntervalBuilder().max(12).maxClosed().build();
 		assertTrue(infiniteUntilInterlval1.isIntersected(infiniteUntilInterlval2));
 	}
 

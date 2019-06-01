@@ -14,7 +14,7 @@ public class Interval {
 	public boolean isIntersected(Interval another) {
 		return  this.isTheSame(another) || this.isIncluded( another.getFromEndpoint()) ||
 				this.isIncluded(another.getUntilEndpoint())||
-				another.isIncluded(this.getFromEndpoint());
+				another.isIncluded(this.getFromEndpoint()) || another.isIncluded(this.getUntilEndpoint());
 	}
 
 	public boolean isIncluded(Point another) {
