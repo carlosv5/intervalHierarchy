@@ -20,7 +20,7 @@ public class Interval {
 				|| another.isIncluded(this.getFromEndpoint()) || another.isIncluded(this.getUntilEndpoint());
 	}
 
-	public boolean isIncluded(Point another) {
+	private boolean isIncluded(Point another) {
 		return this.fromEndpoint.isAtLeft(another) && this.untilEndpoint.isAtRight(another);
 	}
 
