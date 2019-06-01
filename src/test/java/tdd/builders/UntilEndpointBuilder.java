@@ -10,7 +10,7 @@ public class UntilEndpointBuilder {
 	
 	
 	public UntilEndpointBuilder(){
-		this.value = 0;
+		this.value = Double.NaN;
 		this.isClosed = false;
 	}
 	

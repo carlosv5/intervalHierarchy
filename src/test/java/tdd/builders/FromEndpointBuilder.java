@@ -10,7 +10,7 @@ public class FromEndpointBuilder {
 	
 	
 	public FromEndpointBuilder(){
-		this.value = 0;
+		this.value = Double.NaN;
 		this.isClosed = false;
 	}
 	

@@ -36,7 +36,10 @@ public class IntervalBuilder {
 	}
 	
 	public Interval build() {
-		assert fromEndpointBuilder.getValue() <= untilEndpointBuilder.getValue();
+		if (!Double.isNaN(fromEndpointBuilder.getValue()) && !Double.isNaN(untilEndpointBuilder.getValue())){
+			assert fromEndpointBuilder.getValue() <= untilEndpointBuilder.getValue();
+
+		}
 		return new Interval(fromEndpointBuilder.build(), untilEndpointBuilder.build());
 	}
 

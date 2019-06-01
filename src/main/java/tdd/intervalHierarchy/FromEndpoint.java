@@ -7,6 +7,9 @@ public class FromEndpoint extends Point{
 	}
 	
 	public boolean isAtLeft(Point point) {
+		if(Double.isNaN(this.value)) {
+			return true;
+		}
 		if(this.value < point.getValue() || isTheSame(point) ) {
 			return true;
 		}
