@@ -1,7 +1,7 @@
 package tdd.intervalHierarchy;
 
 public class Interval {
-	
+
 	private FromEndpoint fromEndpoint;
 	private UntilEndpoint untilEndpoint;
 
@@ -12,29 +12,29 @@ public class Interval {
 	}
 
 	public boolean isIntersected(Interval another) {
-		return  this.isTheSame(another) || fulfillIncludeConditions(another);
+		return this.isTheSame(another) || fulfillIncludeConditions(another);
 	}
 
 	private boolean fulfillIncludeConditions(Interval another) {
-		return this.isIncluded(another.getFromEndpoint()) ||
-		this.isIncluded(another.getUntilEndpoint())||
-		another.isIncluded(this.getFromEndpoint()) || another.isIncluded(this.getUntilEndpoint());
+		return this.isIncluded(another.getFromEndpoint()) || this.isIncluded(another.getUntilEndpoint())
+				|| another.isIncluded(this.getFromEndpoint()) || another.isIncluded(this.getUntilEndpoint());
 	}
 
 	public boolean isIncluded(Point another) {
 		return this.fromEndpoint.isAtLeft(another) && this.untilEndpoint.isAtRight(another);
 	}
-	
+
 	public Point getFromEndpoint() {
 		return this.fromEndpoint;
 	}
-	
+
 	public Point getUntilEndpoint() {
 		return this.untilEndpoint;
 	}
-	
+
 	public boolean isTheSame(Interval another) {
-		return this.getFromEndpoint().getValue() == another.getFromEndpoint().getValue() && this.getUntilEndpoint().getValue() == another.getUntilEndpoint().getValue();
+		return this.getFromEndpoint().getValue() == another.getFromEndpoint().getValue()
+				&& this.getUntilEndpoint().getValue() == another.getUntilEndpoint().getValue();
 	}
-	
+
 }
