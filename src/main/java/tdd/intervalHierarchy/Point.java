@@ -6,7 +6,7 @@ public class Point {
 	private boolean isClosed;
 	private boolean isFrom;
 	
-	Point(double value, boolean isClosed, boolean isFrom) {
+	protected Point(double value, boolean isClosed, boolean isFrom) {
 		this.value = value;
 		this.isClosed = isClosed;
 		this.isFrom = isFrom;

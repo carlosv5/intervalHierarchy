@@ -2,12 +2,12 @@ package tdd.intervalHierarchy;
 
 public class Interval {
 	
-	private Point fromEndpoint;
-	private Point untilEndpoint;
+	private FromEndpoint fromEndpoint;
+	private UntilEndpoint untilEndpoint;
 
-	public Interval(double min, double max, boolean minIsClosed, boolean maxIsClosed) {
-		this.fromEndpoint = new Point(min, minIsClosed, true);
-		this.untilEndpoint = new Point(max, maxIsClosed, false);
+	public Interval(FromEndpoint fromEndpoint, UntilEndpoint untilEndpoint) {
+		this.fromEndpoint = fromEndpoint;
+		this.untilEndpoint = untilEndpoint;
 
 	}
 

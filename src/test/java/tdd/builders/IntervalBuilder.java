@@ -1,48 +1,43 @@
 package tdd.builders;
 
+import tdd.intervalHierarchy.FromEndpoint;
 import tdd.intervalHierarchy.Interval;
+import tdd.intervalHierarchy.UntilEndpoint;
 
 public class IntervalBuilder {
+	
+	private FromEndpointBuilder fromEndpointBuilder;
+	
+	private UntilEndpointBuilder untilEndpointBuilder;
 
-	private double min;
-	
-	private double max;
-	
-	private boolean minIsClosed;
-	
-	private boolean maxIsClosed;
-
-	
 	public IntervalBuilder(){
-		this.min = 0;
-		this.max = 1;
-		this.minIsClosed = false;
-		this.maxIsClosed = false;
+		this.fromEndpointBuilder = new FromEndpointBuilder();
+		this.untilEndpointBuilder = new UntilEndpointBuilder();
 	}
 	
 	public IntervalBuilder min(double min) {
-		this.min = min;
+		this.fromEndpointBuilder.value(min);
 		return this;
 	}
 
 	public IntervalBuilder max(double max) {
-		this.max = max;
+		this.untilEndpointBuilder.value(max);
 		return this;
 	}
 	
 	public IntervalBuilder minClosed() {
-		this.minIsClosed = true;
+		this.fromEndpointBuilder.closed();
 		return this;
 	}
 	
 	public IntervalBuilder maxClosed() {
-		this.maxIsClosed = true;
+		this.untilEndpointBuilder.closed();
 		return this;
 	}
 	
 	public Interval build() {
-		assert min <= max;
-		return new Interval(min, max, minIsClosed, maxIsClosed);
+		assert fromEndpointBuilder.getValue() <= untilEndpointBuilder.getValue();
+		return new Interval(fromEndpointBuilder.build(), untilEndpointBuilder.build());
 	}
 
 	
