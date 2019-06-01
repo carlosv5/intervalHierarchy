@@ -3,6 +3,8 @@ package tdd.intervalHierarchy;
 import org.junit.Test;
 
 import junit.framework.TestCase;
+import tdd.builders.ClosedIntervalBuilder;
+import tdd.builders.OpenedIntervalBuilder;
 
 public class OpenedAndCloseIntervals extends TestCase {
 	

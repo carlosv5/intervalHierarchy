@@ -1,4 +1,6 @@
-package tdd.intervalHierarchy;
+package tdd.builders;
+
+import tdd.intervalHierarchy.Interval;
 
 public class IntervalBuilder {
 
@@ -11,34 +13,34 @@ public class IntervalBuilder {
 	private boolean maxIsClosed;
 
 	
-	IntervalBuilder(){
+	public IntervalBuilder(){
 		this.min = 0;
 		this.max = 1;
 		this.minIsClosed = false;
 		this.maxIsClosed = false;
 	}
 	
-	IntervalBuilder min(double min) {
+	public IntervalBuilder min(double min) {
 		this.min = min;
 		return this;
 	}
 
-	IntervalBuilder max(double max) {
+	public IntervalBuilder max(double max) {
 		this.max = max;
 		return this;
 	}
 	
-	IntervalBuilder minClosed() {
+	public IntervalBuilder minClosed() {
 		this.minIsClosed = true;
 		return this;
 	}
 	
-	IntervalBuilder maxClosed() {
+	public IntervalBuilder maxClosed() {
 		this.maxIsClosed = true;
 		return this;
 	}
 	
-	Interval build() {
+	public Interval build() {
 		assert min <= max;
 		return new Interval(min, max, minIsClosed, maxIsClosed);
 	}
