@@ -29,6 +29,33 @@ public class MixedIntervalTest {
 		Interval closeclose = new IntervalBuilder().min(14).max(15).minClosed().maxClosed().build();
 		assertTrue(openclose.isIntersected(closeclose));
 	}
-
+	
+	@Test
+	public void testIsNotIntersectedCloseOpenWithCloseCloseOverlappingByOnePointInRight() {
+		Interval openclose = new IntervalBuilder().min(3).max(14).minClosed().build();
+		Interval closeclose = new IntervalBuilder().min(14).max(15).minClosed().maxClosed().build();
+		assertFalse(openclose.isIntersected(closeclose));
+	}
+	
+	@Test
+	public void testIsIntersectedCloseOpenWithCloseCloseOverlappingByOnePointInLeft() {
+		Interval openclose = new IntervalBuilder().min(3).max(14).minClosed().build();
+		Interval closeclose = new IntervalBuilder().min(1).max(3).minClosed().maxClosed().build();
+		assertTrue(openclose.isIntersected(closeclose));
+	}
+	
+	@Test
+	public void testIsIntersectedCloseOpenWithCloseCloseOverlappingInside() {
+		Interval openclose = new IntervalBuilder().min(3).max(14).minClosed().build();
+		Interval closeclose = new IntervalBuilder().min(5).max(10).minClosed().maxClosed().build();
+		assertTrue(openclose.isIntersected(closeclose));
+	}
+	
+	@Test
+	public void testIsIntersectedCloseOpenWithCloseCloseOverlappingOutside() {
+		Interval openclose = new IntervalBuilder().min(3).max(14).minClosed().build();
+		Interval closeclose = new IntervalBuilder().min(1).max(19).minClosed().maxClosed().build();
+		assertTrue(openclose.isIntersected(closeclose));
+	}
 
 }
