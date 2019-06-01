@@ -7,7 +7,7 @@ public class Interval {
 
 	public Interval(double min, double max, boolean minIsClosed, boolean maxIsClosed) {
 		this.fromEndpoint = new Point(min, minIsClosed, true);
-		this.untilEndpoint = new Point(max, minIsClosed, false);
+		this.untilEndpoint = new Point(max, maxIsClosed, false);
 
 	}
 
